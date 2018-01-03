@@ -26,7 +26,7 @@ public class RetrofitHelper {
                 .build();
     }
 
-    public static Observable<Response<ISSResponse>> createSearch(int lat, int lon){
+    public static Observable<Response<ISSResponse>> createSearch(String lat, String lon){
         Retrofit retrofit = create();
         ApiService apiService =  retrofit.create(ApiService.class);
         return apiService.getSearch(lat, lon);
@@ -37,7 +37,7 @@ public class RetrofitHelper {
 
         //search?q=chicken&app_id=1f4aae74&app_key=edc70eb534f8c9850813717f88471596
         @GET("iss-pass.json?")
-        Observable<Response<ISSResponse>> getSearch(@Query("lat") int lat, @Query("lon") int lon);
+        Observable<Response<ISSResponse>> getSearch(@Query("lat") String lat, @Query("lon") String lon);
     }
 
 }
